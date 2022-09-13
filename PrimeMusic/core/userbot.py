@@ -79,13 +79,13 @@ class Userbot(Client):
             await self.one.start()
             try:
                 await self.one.join_chat("PrimeSupportChannel")
-                await self.one.join_chat("PrimeSupportGroup")
+                await self.one.join_chat("HumanzBotSupport")
             except:
                 pass
             assistants.append(1)
             try:
                 await self.one.send_message(
-                    config.LOG_GROUP_ID, "Assistant Mulai"
+                    config.LOG_GROUP_ID, "Assistant Siap"
                 )
             except:
                 LOGGER(__name__).error(
