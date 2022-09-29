@@ -28,7 +28,7 @@ async def init():
         and not config.STRING9
         and not config.STRING10
     ):
-        LOGGER("PrimeMusic").error(
+        LOGGER("GojoMusic").error(
             "No Assistant Clients Vars Defined!.. Exiting Process."
         )
         return
@@ -36,7 +36,7 @@ async def init():
         not config.SPOTIFY_CLIENT_ID
         and not config.SPOTIFY_CLIENT_SECRET
     ):
-        LOGGER("PrimeMusic").warning(
+        LOGGER("GojoMusic").warning(
             "No Spotify Vars defined. Your bot won't be able to play spotify queries."
         )
     try:
@@ -51,30 +51,30 @@ async def init():
     await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module("PrimeMusic.plugins" + all_module)
-    LOGGER("PrimeMusic.plugins").info(
+    LOGGER("GojoMusic.plugins").info(
         "Successfully Imported Modules "
     )
     await userbot.start()
     await Prime.start()
     prime = await app.get_me()
     PrimeMusic = prime.username
-    await userbot.one.send_message("primesupportgroup", f"@{PrimeMusic}")
+    await userbot.one.send_message("HumanzBotSupport", f"@{PrimeMusic}")
     try:
         await Prime.stream_call(
             "http://docs.evostream.com/sample_content/assets/sintel1m720p.mp4"
         )
     except NoActiveGroupCall:
-        LOGGER("PrimeMusic").error(
+        LOGGER("GojoMusic").error(
             "[ERROR] - \n\nPlease turn on your Logger Group's Voice Call. Make sure you never close/end voice call in your log group"
         )
         sys.exit()
     except:
         pass
     await Prime.decorators()
-    LOGGER("PrimeMusic").info("Prime Music Bot Started Successfully")
+    LOGGER("PrimeMusic").info("Gojo Music Bot Started Successfully")
     await idle()
 
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("PrimeMusic").info("Stopping Prime Music Bot! GoodBye")
+    LOGGER("GojoMusic").info("Stopping Prime Music Bot! GoodBye")
